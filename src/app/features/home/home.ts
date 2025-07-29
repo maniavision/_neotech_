@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate, query, stagger, state } from '@angular/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Technology {
   name: string;
@@ -11,7 +12,7 @@ interface Technology {
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   animations: [
     trigger('fadeInUp', [
       transition(':enter', [

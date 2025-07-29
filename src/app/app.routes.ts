@@ -23,7 +23,7 @@ export const routes: Routes = [
   {
     path: 'requests/:id',
     loadComponent: () => import('./features/requests/request-detail/request-detail').then(m => m.RequestDetail),
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
   {
     path: 'confirm/:token',

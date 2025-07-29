@@ -1,0 +1,32 @@
+<div class="language-switcher">
+    <button 
+      class="language-toggle"
+      (click)="toggleDropdown()"
+      [class.active]="isDropdownOpen">
+      <span class="current-flag">{{ getCurrentLanguage()?.flag }}</span>
+      <span class="current-name">{{ getCurrentLanguage()?.name }}</span>
+      <svg class="chevron" [class.rotated]="isDropdownOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6,9 12,15 18,9"></polyline>
+      </svg>
+    </button>
+    
+    <div class="language-dropdown" [class.open]="isDropdownOpen">
+      <button 
+        *ngFor="let language of availableLanguages"
+        class="language-option"
+        [class.active]="language.code === currentLanguage"
+        (click)="selectLanguage(language.code)">
+        <span class="flag">{{ language.flag }}</span>
+        <span class="name">{{ language.name }}</span>
+        <svg *ngIf="language.code === currentLanguage" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20,6 9,17 4,12"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <div 
+    *ngIf="isDropdownOpen" 
+    class="dropdown-backdrop"
+    (click)="closeDropdown()">
+  </div>

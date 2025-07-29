@@ -5,13 +5,13 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { filter } from 'rxjs';
 import { Footer } from './shared/components/footer/footer';
 import { Header } from './shared/components/header/header';
+import { TranslationService } from './core/services/translation.service';
 
 @Component({
   selector: 'app-root',
   imports: [CommonModule, RouterOutlet, RouterModule, Header, Footer],
   templateUrl: './app.html',
   animations: [
-    // Route transition animation
     trigger('routeAnimations', [
       transition('* <=> *', [
         style({ opacity: 0, transform: 'translateY(20px)' }),
@@ -23,9 +23,13 @@ import { Header } from './shared/components/header/header';
 })
 export class App {
   private router = inject(Router);
+  private translationService = inject(TranslationService);
   private routeData = '';
 
   ngOnInit(): void {
+    // Initialize translation service (this will set up the translations)
+    this.translationService;
+    
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {

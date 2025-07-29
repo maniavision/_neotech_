@@ -7,8 +7,8 @@
             <div class="brand-icon-glow"></div>
           </div>
           <div class="brand-text-container">
-            <span class="brand-text">IT Consulting</span>
-            <span class="brand-subtitle">Professional Solutions</span>
+            <span class="brand-text">{{ 'header.brand' | translate }}</span>
+            <span class="brand-subtitle">{{ 'header.subtitle' | translate }}</span>
           </div>
         </div>
       </a>
@@ -28,14 +28,14 @@
              (click)="closeMobileMenu()"
              class="nav-link">
             <span class="nav-icon">🏠</span>
-            <span>Home</span>
+            <span>{{ 'header.nav.home' | translate }}</span>
           </a>
           <a routerLink="/request" 
              routerLinkActive="active"
              (click)="closeMobileMenu()"
              class="nav-link">
             <span class="nav-icon">📝</span>
-            <span>Submit Request</span>
+            <span>{{ 'header.nav.submitRequest' | translate }}</span>
           </a>
           <a *ngIf="!isLoggedIn" 
              routerLink="/login" 
@@ -43,7 +43,7 @@
              (click)="closeMobileMenu()"
              class="nav-link">
             <span class="nav-icon">🔐</span>
-            <span>Login</span>
+            <span>{{ 'header.nav.login' | translate }}</span>
           </a>
           <a *ngIf="isLoggedIn" 
              routerLink="/dashboard" 
@@ -51,13 +51,20 @@
              (click)="closeMobileMenu()"
              class="nav-link">
             <span class="nav-icon">📊</span>
-            <span>Dashboard</span>
+            <span>{{ 'header.nav.dashboard' | translate }}</span>
           </a>
+          
+          <div class="nav-divider"></div>
+          
+          <div class="nav-language">
+            <app-language-switcher></app-language-switcher>
+          </div>
+          
           <button *ngIf="isLoggedIn" 
                   (click)="logout()" 
                   class="btn btn-accent logout-btn">
             <span class="logout-icon">🚪</span>
-            <span>Logout</span>
+            <span>{{ 'header.nav.logout' | translate }}</span>
           </button>
         </div>
       </div>

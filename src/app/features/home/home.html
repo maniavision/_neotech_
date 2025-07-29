@@ -14,43 +14,44 @@
       <div class="hero-content" [@slideInLeft]>
         <div class="hero-badge" [@fadeInUp]>
           <span class="badge-icon">✨</span>
-          <span>Welcome to the Future of IT Solutions</span>
+          <span>{{ 'home.hero.badge' | translate }}</span>
         </div>
         
         <h1 class="hero-title">
-          <span class="title-line">Transform Your Business</span>
-          <span class="title-line text-gradient" data-text="with Expert IT Solutions">with Expert IT Solutions</span>
+          <span class="title-line">{{ 'home.hero.title.line1' | translate }}</span>
+          <span class="title-line text-gradient" [attr.data-text]="'home.hero.title.line2' | translate">
+            {{ 'home.hero.title.line2' | translate }}
+          </span>
         </h1>
         
         <p class="hero-subtitle" [@slideInRight]>
-          Unlock your potential with cutting-edge web development, data management, 
-          ETL processes, and cloud hosting solutions designed for modern enterprises.
+          {{ 'home.hero.subtitle' | translate }}
         </p>
         
         <div class="hero-actions" [@fadeInUp]>
           <a routerLink="/request" class="btn btn-primary btn-lg hero-cta">
-            <span>Start Your Journey</span>
+            <span>{{ 'home.hero.cta.primary' | translate }}</span>
             <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="m9 18 6-6-6-6"/>
             </svg>
           </a>
           <a href="#services" class="btn btn-secondary btn-lg">
-            <span>Explore Services</span>
+            <span>{{ 'home.hero.cta.secondary' | translate }}</span>
           </a>
         </div>
         
         <div class="hero-stats" [@fadeInUp]>
           <div class="stat-item">
             <div class="stat-number">500+</div>
-            <div class="stat-label">Projects Completed</div>
+            <div class="stat-label">{{ 'home.hero.stats.projects' | translate }}</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">98%</div>
-            <div class="stat-label">Client Satisfaction</div>
+            <div class="stat-label">{{ 'home.hero.stats.satisfaction' | translate }}</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">24/7</div>
-            <div class="stat-label">Support Available</div>
+            <div class="stat-label">{{ 'home.hero.stats.support' | translate }}</div>
           </div>
         </div>
       </div>
@@ -61,31 +62,149 @@
       <div class="container">
         <div class="section-header" [@slideInLeft]>
           <div class="section-badge">
-            <span>Our Expertise</span>
+            <span>{{ 'home.services.badge' | translate }}</span>
           </div>
-          <h2>Comprehensive IT Solutions</h2>
-          <p>We deliver end-to-end technology solutions that drive innovation and accelerate your business growth</p>
+          <h2>{{ 'home.services.title' | translate }}</h2>
+          <p>{{ 'home.services.subtitle' | translate }}</p>
         </div>
         
-        <div class="services-grid" [@staggerIn]="services.length">
-          <div *ngFor="let service of services; let i = index; trackBy: trackByService" 
-               class="service-card"
-               [style.animation-delay.ms]="i * 100">
+        <div class="services-grid" [@staggerIn]="6">
+          <div class="service-card" [style.animation-delay.ms]="0">
             <div class="service-header">
               <div class="service-icon">
-                <span>{{ service.icon }}</span>
+                <span>🌐</span>
                 <div class="icon-glow"></div>
               </div>
               <div class="service-meta">
-                <h3>{{ service.title }}</h3>
-                <div class="service-category">{{ service.category }}</div>
+                <h3>{{ 'home.services.items.webDevelopment.title' | translate }}</h3>
+                <div class="service-category">{{ 'home.services.items.webDevelopment.category' | translate }}</div>
               </div>
             </div>
             
-            <p class="service-description">{{ service.description }}</p>
+            <p class="service-description">{{ 'home.services.items.webDevelopment.description' | translate }}</p>
             
             <div class="service-features">
-              <div *ngFor="let feature of service.features" class="feature-item">
+              <div *ngFor="let feature of ('home.services.items.webDevelopment.features' | translate)" class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="service-overlay"></div>
+          </div>
+
+          <div class="service-card" [style.animation-delay.ms]="100">
+            <div class="service-header">
+              <div class="service-icon">
+                <span>📊</span>
+                <div class="icon-glow"></div>
+              </div>
+              <div class="service-meta">
+                <h3>{{ 'home.services.items.dataManagement.title' | translate }}</h3>
+                <div class="service-category">{{ 'home.services.items.dataManagement.category' | translate }}</div>
+              </div>
+            </div>
+            
+            <p class="service-description">{{ 'home.services.items.dataManagement.description' | translate }}</p>
+            
+            <div class="service-features">
+              <div *ngFor="let feature of ('home.services.items.dataManagement.features' | translate)" class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="service-overlay"></div>
+          </div>
+
+          <div class="service-card" [style.animation-delay.ms]="200">
+            <div class="service-header">
+              <div class="service-icon">
+                <span>🔄</span>
+                <div class="icon-glow"></div>
+              </div>
+              <div class="service-meta">
+                <h3>{{ 'home.services.items.etlProcess.title' | translate }}</h3>
+                <div class="service-category">{{ 'home.services.items.etlProcess.category' | translate }}</div>
+              </div>
+            </div>
+            
+            <p class="service-description">{{ 'home.services.items.etlProcess.description' | translate }}</p>
+            
+            <div class="service-features">
+              <div *ngFor="let feature of ('home.services.items.etlProcess.features' | translate)" class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="service-overlay"></div>
+          </div>
+
+          <div class="service-card" [style.animation-delay.ms]="300">
+            <div class="service-header">
+              <div class="service-icon">
+                <span>☁️</span>
+                <div class="icon-glow"></div>
+              </div>
+              <div class="service-meta">
+                <h3>{{ 'home.services.items.cloudHosting.title' | translate }}</h3>
+                <div class="service-category">{{ 'home.services.items.cloudHosting.category' | translate }}</div>
+              </div>
+            </div>
+            
+            <p class="service-description">{{ 'home.services.items.cloudHosting.description' | translate }}</p>
+            
+            <div class="service-features">
+              <div *ngFor="let feature of ('home.services.items.cloudHosting.features' | translate)" class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="service-overlay"></div>
+          </div>
+
+          <div class="service-card" [style.animation-delay.ms]="400">
+            <div class="service-header">
+              <div class="service-icon">
+                <span>🎯</span>
+                <div class="icon-glow"></div>
+              </div>
+              <div class="service-meta">
+                <h3>{{ 'home.services.items.customSolutions.title' | translate }}</h3>
+                <div class="service-category">{{ 'home.services.items.customSolutions.category' | translate }}</div>
+              </div>
+            </div>
+            
+            <p class="service-description">{{ 'home.services.items.customSolutions.description' | translate }}</p>
+            
+            <div class="service-features">
+              <div *ngFor="let feature of ('home.services.items.customSolutions.features' | translate)" class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="service-overlay"></div>
+          </div>
+
+          <div class="service-card" [style.animation-delay.ms]="500">
+            <div class="service-header">
+              <div class="service-icon">
+                <span>⚙️</span>
+                <div class="icon-glow"></div>
+              </div>
+              <div class="service-meta">
+                <h3>{{ 'home.services.items.devops.title' | translate }}</h3>
+                <div class="service-category">{{ 'home.services.items.devops.category' | translate }}</div>
+              </div>
+            </div>
+            
+            <p class="service-description">{{ 'home.services.items.devops.description' | translate }}</p>
+            
+            <div class="service-features">
+              <div *ngFor="let feature of ('home.services.items.devops.features' | translate)" class="feature-item">
                 <span class="feature-icon">✓</span>
                 <span>{{ feature }}</span>
               </div>
@@ -97,38 +216,264 @@
       </div>
     </section>
 
-    <!-- Technologies Section -->
+    <!-- Technologies Section - COMPLETE IMPLEMENTATION -->
     <section class="technologies" [@fadeInUp]>
       <div class="container">
         <div class="section-header" [@slideInRight]>
           <div class="section-badge">
-            <span>Our Stack</span>
+            <span>{{ 'home.technologies.badge' | translate }}</span>
           </div>
-          <h2>Cutting-Edge Technologies</h2>
-          <p>We leverage the latest tools and frameworks to build scalable, robust solutions</p>
+          <h2>{{ 'home.technologies.title' | translate }}</h2>
+          <p>{{ 'home.technologies.subtitle' | translate }}</p>
         </div>
         
-        <div class="tech-showcase" [@staggerIn]="techCategories.length">
-          <div *ngFor="let category of techCategories; let i = index; trackBy: trackByCategory" 
-               class="tech-category"
-               [style.animation-delay.ms]="i * 150">
+        <div class="tech-showcase" [@staggerIn]="4">
+          <!-- Backend Development -->
+          <div class="tech-category" [style.animation-delay.ms]="0">
             <div class="tech-header">
-              <div class="tech-icon">{{ category.icon }}</div>
-              <h3>{{ category.name }}</h3>
-              <p>{{ category.description }}</p>
+              <div class="tech-icon">🏗️</div>
+              <h3>{{ 'home.technologies.categories.backend.title' | translate }}</h3>
+              <p>{{ 'home.technologies.categories.backend.description' | translate }}</p>
             </div>
             
             <div class="tech-items">
-              <div *ngFor="let tech of category.technologies; trackBy: trackByTech" 
-                   class="tech-item">
-                <div class="tech-logo">{{ tech.icon }}</div>
+              <div class="tech-item">
+                <div class="tech-logo">🍃</div>
                 <div class="tech-info">
-                  <span class="tech-name">{{ tech.name }}</span>
-                  <span class="tech-level">{{ tech.level }}</span>
+                  <span class="tech-name">{{ 'home.technologies.categories.backend.technologies.springBoot.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.backend.technologies.springBoot.level' | translate }}</span>
                 </div>
                 <div class="tech-rating">
                   <div class="rating-stars">
-                    <span *ngFor="let star of getStars(tech.rating)" class="star">⭐</span>
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">🟢</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.backend.technologies.nodejs.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.backend.technologies.nodejs.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">🐍</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.backend.technologies.python.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.backend.technologies.python.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(4)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">☕</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.backend.technologies.java.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.backend.technologies.java.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frontend Development -->
+          <div class="tech-category" [style.animation-delay.ms]="150">
+            <div class="tech-header">
+              <div class="tech-icon">🎨</div>
+              <h3>{{ 'home.technologies.categories.frontend.title' | translate }}</h3>
+              <p>{{ 'home.technologies.categories.frontend.description' | translate }}</p>
+            </div>
+            
+            <div class="tech-items">
+              <div class="tech-item">
+                <div class="tech-logo">🅰️</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.frontend.technologies.angular.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.frontend.technologies.angular.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">⚛️</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.frontend.technologies.react.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.frontend.technologies.react.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">💚</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.frontend.technologies.vue.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.frontend.technologies.vue.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(4)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">📘</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.frontend.technologies.typescript.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.frontend.technologies.typescript.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data & Analytics -->
+          <div class="tech-category" [style.animation-delay.ms]="300">
+            <div class="tech-header">
+              <div class="tech-icon">📈</div>
+              <h3>{{ 'home.technologies.categories.data.title' | translate }}</h3>
+              <p>{{ 'home.technologies.categories.data.description' | translate }}</p>
+            </div>
+            
+            <div class="tech-items">
+              <div class="tech-item">
+                <div class="tech-logo">🐘</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.data.technologies.postgresql.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.data.technologies.postgresql.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">🍃</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.data.technologies.mongodb.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.data.technologies.mongodb.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(4)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">📨</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.data.technologies.kafka.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.data.technologies.kafka.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">🔴</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.data.technologies.redis.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.data.technologies.redis.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(4)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div class="tech-category" [style.animation-delay.ms]="450">
+            <div class="tech-header">
+              <div class="tech-icon">🚀</div>
+              <h3>{{ 'home.technologies.categories.cloud.title' | translate }}</h3>
+              <p>{{ 'home.technologies.categories.cloud.description' | translate }}</p>
+            </div>
+            
+            <div class="tech-items">
+              <div class="tech-item">
+                <div class="tech-logo">☁️</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.cloud.technologies.aws.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.cloud.technologies.aws.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">🌤️</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.cloud.technologies.gcp.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.cloud.technologies.gcp.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">🐳</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.cloud.technologies.docker.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.cloud.technologies.docker.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(5)" class="star">⭐</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-item">
+                <div class="tech-logo">⚓</div>
+                <div class="tech-info">
+                  <span class="tech-name">{{ 'home.technologies.categories.cloud.technologies.kubernetes.name' | translate }}</span>
+                  <span class="tech-level">{{ 'home.technologies.categories.cloud.technologies.kubernetes.level' | translate }}</span>
+                </div>
+                <div class="tech-rating">
+                  <div class="rating-stars">
+                    <span *ngFor="let star of getStars(4)" class="star">⭐</span>
                   </div>
                 </div>
               </div>
@@ -143,31 +488,31 @@
       <div class="container">
         <div class="cta-content">
           <div class="cta-badge">
-            <span>Ready to Get Started?</span>
+            <span>{{ 'home.cta.badge' | translate }}</span>
           </div>
-          <h2>Transform Your Vision into Reality</h2>
-          <p>Join hundreds of satisfied clients who have accelerated their digital transformation journey with our expert solutions.</p>
+          <h2>{{ 'home.cta.title' | translate }}</h2>
+          <p>{{ 'home.cta.subtitle' | translate }}</p>
           
           <div class="cta-actions">
             <a routerLink="/request" class="btn btn-primary btn-lg">
-              <span>Start Your Project</span>
+              <span>{{ 'home.cta.buttons.primary' | translate }}</span>
               <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </a>
             <a href="#contact" class="btn btn-secondary btn-lg">
-              <span>Schedule Consultation</span>
+              <span>{{ 'home.cta.buttons.secondary' | translate }}</span>
             </a>
           </div>
           
           <div class="cta-testimonial">
             <div class="testimonial-content">
-              <p>"The IT consulting team delivered exceptional results that exceeded our expectations."</p>
+              <p>"{{ 'home.cta.testimonial.quote' | translate }}"</p>
               <div class="testimonial-author">
                 <div class="author-avatar">👤</div>
                 <div class="author-info">
-                  <span class="author-name">Sarah Johnson</span>
-                  <span class="author-title">CTO, TechCorp</span>
+                  <span class="author-name">{{ 'home.cta.testimonial.author' | translate }}</span>
+                  <span class="author-title">{{ 'home.cta.testimonial.title' | translate }}</span>
                 </div>
               </div>
             </div>

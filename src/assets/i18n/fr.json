@@ -1,0 +1,176 @@
+{
+    "header": {
+      "brand": "Conseil IT",
+      "subtitle": "Solutions Professionnelles",
+      "nav": {
+        "home": "Accueil",
+        "submitRequest": "Soumettre une Demande",
+        "login": "Connexion",
+        "dashboard": "Tableau de Bord",
+        "logout": "Déconnexion"
+      }
+    },
+    "home": {
+      "hero": {
+        "badge": "Bienvenue dans l'Avenir des Solutions IT",
+        "title": {
+          "line1": "Transformez Votre Entreprise",
+          "line2": "avec des Solutions IT Expertes"
+        },
+        "subtitle": "Libérez votre potentiel avec des solutions de pointe en développement web, gestion de données, processus ETL et hébergement cloud conçues pour les entreprises modernes.",
+        "cta": {
+          "primary": "Commencez Votre Voyage",
+          "secondary": "Explorer les Services"
+        },
+        "stats": {
+          "projects": "Projets Terminés",
+          "satisfaction": "Satisfaction Client",
+          "support": "Support Disponible"
+        }
+      },
+      "services": {
+        "badge": "Notre Expertise",
+        "title": "Solutions IT Complètes",
+        "subtitle": "Nous livrons des solutions technologiques de bout en bout qui stimulent l'innovation et accélèrent la croissance de votre entreprise",
+        "items": {
+          "webDevelopment": {
+            "title": "Développement Web",
+            "category": "Frontend & Backend",
+            "description": "Applications web personnalisées construites avec des frameworks modernes et les meilleures pratiques pour des performances optimales et une expérience utilisateur.",
+            "features": [
+              "Design Responsive",
+              "Applications Web Progressives",
+              "Intégration API",
+              "Optimisation des Performances"
+            ]
+          },
+          "dataManagement": {
+            "title": "Gestion des Données",
+            "category": "Analytique & Stockage",
+            "description": "Solutions de données complètes incluant le stockage, le traitement, l'analytique et la visualisation pour des décisions basées sur les données.",
+            "features": [
+              "Entrepôt de Données",
+              "Analytique en Temps Réel",
+              "Visualisation de Données",
+              "Intelligence d'Affaires"
+            ]
+          },
+          "etlProcess": {
+            "title": "Processus ETL",
+            "category": "Intégration de Données",
+            "description": "Processus d'Extraction, Transformation, Chargement transparents pour une intégration efficace des données entre plusieurs systèmes et plateformes.",
+            "features": [
+              "Conception de Pipeline de Données",
+              "Traitement Automatisé",
+              "Assurance Qualité des Données",
+              "Surveillance & Alertes"
+            ]
+          },
+          "cloudHosting": {
+            "title": "Hébergement Cloud",
+            "category": "Infrastructure",
+            "description": "Solutions d'infrastructure cloud évolutives et sécurisées sur AWS et GCP avec garantie de disponibilité de 99,9%.",
+            "features": [
+              "Auto-scaling",
+              "Équilibrage de Charge",
+              "Conformité Sécuritaire",
+              "Surveillance 24/7"
+            ]
+          },
+          "customSolutions": {
+            "title": "Solutions Personnalisées",
+            "category": "Développement Sur Mesure",
+            "description": "Solutions logicielles sur mesure conçues spécifiquement pour vos exigences et flux de travail d'entreprise uniques.",
+            "features": [
+              "Analyse des Exigences",
+              "Architecture Personnalisée",
+              "Support d'Intégration",
+              "Maintenance Continue"
+            ]
+          },
+          "devops": {
+            "title": "DevOps & CI/CD",
+            "category": "Automatisation",
+            "description": "Flux de travail de développement rationalisés avec tests automatisés, déploiement et gestion d'infrastructure.",
+            "features": [
+              "Automatisation de Pipeline",
+              "Orchestration de Conteneurs",
+              "Infrastructure as Code",
+              "Surveillance & Journalisation"
+            ]
+          }
+        }
+      },
+      "technologies": {
+        "badge": "Notre Stack",
+        "title": "Technologies de Pointe",
+        "subtitle": "Nous exploitons les outils et frameworks les plus récents pour construire des solutions évolutives et robustes",
+        "categories": {
+          "backend": {
+            "title": "Développement Backend",
+            "description": "Solutions côté serveur robustes",
+            "technologies": {
+              "springBoot": { "name": "Spring Boot", "level": "Expert" },
+              "nodejs": { "name": "Node.js", "level": "Expert" },
+              "python": { "name": "Python", "level": "Avancé" },
+              "java": { "name": "Java", "level": "Expert" }
+            }
+          },
+          "frontend": {
+            "title": "Développement Frontend",
+            "description": "Interfaces utilisateur modernes",
+            "technologies": {
+              "angular": { "name": "Angular", "level": "Expert" },
+              "react": { "name": "React", "level": "Expert" },
+              "vue": { "name": "Vue.js", "level": "Avancé" },
+              "typescript": { "name": "TypeScript", "level": "Expert" }
+            }
+          },
+          "data": {
+            "title": "Données & Analytique",
+            "description": "Insights basés sur les données",
+            "technologies": {
+              "postgresql": { "name": "PostgreSQL", "level": "Expert" },
+              "mongodb": { "name": "MongoDB", "level": "Avancé" },
+              "kafka": { "name": "Apache Kafka", "level": "Expert" },
+              "redis": { "name": "Redis", "level": "Avancé" }
+            }
+          },
+          "cloud": {
+            "title": "Cloud & DevOps",
+            "description": "Infrastructure évolutive",
+            "technologies": {
+              "aws": { "name": "AWS", "level": "Expert" },
+              "gcp": { "name": "Google Cloud", "level": "Expert" },
+              "docker": { "name": "Docker", "level": "Expert" },
+              "kubernetes": { "name": "Kubernetes", "level": "Avancé" }
+            }
+          }
+        }
+      },
+      "cta": {
+        "badge": "Prêt à Commencer?",
+        "title": "Transformez Votre Vision en Réalité",
+        "subtitle": "Rejoignez des centaines de clients satisfaits qui ont accéléré leur parcours de transformation numérique avec nos solutions expertes.",
+        "buttons": {
+          "primary": "Commencer Votre Projet",
+          "secondary": "Planifier une Consultation"
+        },
+        "testimonial": {
+          "quote": "L'équipe de conseil IT a livré des résultats exceptionnels qui ont dépassé nos attentes.",
+          "author": "Sarah Johnson",
+          "title": "CTO, TechCorp"
+        }
+      }
+    },
+    "common": {
+      "loading": "Chargement...",
+      "error": "Une erreur s'est produite",
+      "success": "Succès",
+      "cancel": "Annuler",
+      "save": "Sauvegarder",
+      "submit": "Soumettre",
+      "close": "Fermer"
+    }
+  }
+  

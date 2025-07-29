@@ -1,0 +1,176 @@
+{
+    "header": {
+      "brand": "IT Consulting",
+      "subtitle": "Professional Solutions",
+      "nav": {
+        "home": "Home",
+        "submitRequest": "Submit Request",
+        "login": "Login",
+        "dashboard": "Dashboard",
+        "logout": "Logout"
+      }
+    },
+    "home": {
+      "hero": {
+        "badge": "Welcome to the Future of IT Solutions",
+        "title": {
+          "line1": "Transform Your Business",
+          "line2": "with Expert IT Solutions"
+        },
+        "subtitle": "Unlock your potential with cutting-edge web development, data management, ETL processes, and cloud hosting solutions designed for modern enterprises.",
+        "cta": {
+          "primary": "Start Your Journey",
+          "secondary": "Explore Services"
+        },
+        "stats": {
+          "projects": "Projects Completed",
+          "satisfaction": "Client Satisfaction",
+          "support": "Support Available"
+        }
+      },
+      "services": {
+        "badge": "Our Expertise",
+        "title": "Comprehensive IT Solutions",
+        "subtitle": "We deliver end-to-end technology solutions that drive innovation and accelerate your business growth",
+        "items": {
+          "webDevelopment": {
+            "title": "Web Development",
+            "category": "Frontend & Backend",
+            "description": "Custom web applications built with modern frameworks and best practices for optimal performance and user experience.",
+            "features": [
+              "Responsive Design",
+              "Progressive Web Apps",
+              "API Integration",
+              "Performance Optimization"
+            ]
+          },
+          "dataManagement": {
+            "title": "Data Management",
+            "category": "Analytics & Storage",
+            "description": "Comprehensive data solutions including storage, processing, analytics, and visualization for data-driven decisions.",
+            "features": [
+              "Data Warehousing",
+              "Real-time Analytics",
+              "Data Visualization",
+              "Business Intelligence"
+            ]
+          },
+          "etlProcess": {
+            "title": "ETL Process",
+            "category": "Data Integration",
+            "description": "Seamless Extract, Transform, Load processes for efficient data integration across multiple systems and platforms.",
+            "features": [
+              "Data Pipeline Design",
+              "Automated Processing",
+              "Data Quality Assurance",
+              "Monitoring & Alerts"
+            ]
+          },
+          "cloudHosting": {
+            "title": "Cloud Hosting",
+            "category": "Infrastructure",
+            "description": "Scalable and secure cloud infrastructure solutions on AWS and GCP with 99.9% uptime guarantee.",
+            "features": [
+              "Auto-scaling",
+              "Load Balancing",
+              "Security Compliance",
+              "24/7 Monitoring"
+            ]
+          },
+          "customSolutions": {
+            "title": "Custom Solutions",
+            "category": "Tailored Development",
+            "description": "Bespoke software solutions designed specifically for your unique business requirements and workflows.",
+            "features": [
+              "Requirements Analysis",
+              "Custom Architecture",
+              "Integration Support",
+              "Ongoing Maintenance"
+            ]
+          },
+          "devops": {
+            "title": "DevOps & CI/CD",
+            "category": "Automation",
+            "description": "Streamlined development workflows with automated testing, deployment, and infrastructure management.",
+            "features": [
+              "Pipeline Automation",
+              "Container Orchestration",
+              "Infrastructure as Code",
+              "Monitoring & Logging"
+            ]
+          }
+        }
+      },
+      "technologies": {
+        "badge": "Our Stack",
+        "title": "Cutting-Edge Technologies",
+        "subtitle": "We leverage the latest tools and frameworks to build scalable, robust solutions",
+        "categories": {
+          "backend": {
+            "title": "Backend Development",
+            "description": "Robust server-side solutions",
+            "technologies": {
+              "springBoot": { "name": "Spring Boot", "level": "Expert" },
+              "nodejs": { "name": "Node.js", "level": "Expert" },
+              "python": { "name": "Python", "level": "Advanced" },
+              "java": { "name": "Java", "level": "Expert" }
+            }
+          },
+          "frontend": {
+            "title": "Frontend Development",
+            "description": "Modern user interfaces",
+            "technologies": {
+              "angular": { "name": "Angular", "level": "Expert" },
+              "react": { "name": "React", "level": "Expert" },
+              "vue": { "name": "Vue.js", "level": "Advanced" },
+              "typescript": { "name": "TypeScript", "level": "Expert" }
+            }
+          },
+          "data": {
+            "title": "Data & Analytics",
+            "description": "Data-driven insights",
+            "technologies": {
+              "postgresql": { "name": "PostgreSQL", "level": "Expert" },
+              "mongodb": { "name": "MongoDB", "level": "Advanced" },
+              "kafka": { "name": "Apache Kafka", "level": "Expert" },
+              "redis": { "name": "Redis", "level": "Advanced" }
+            }
+          },
+          "cloud": {
+            "title": "Cloud & DevOps",
+            "description": "Scalable infrastructure",
+            "technologies": {
+              "aws": { "name": "AWS", "level": "Expert" },
+              "gcp": { "name": "Google Cloud", "level": "Expert" },
+              "docker": { "name": "Docker", "level": "Expert" },
+              "kubernetes": { "name": "Kubernetes", "level": "Advanced" }
+            }
+          }
+        }
+      },
+      "cta": {
+        "badge": "Ready to Get Started?",
+        "title": "Transform Your Vision into Reality",
+        "subtitle": "Join hundreds of satisfied clients who have accelerated their digital transformation journey with our expert solutions.",
+        "buttons": {
+          "primary": "Start Your Project",
+          "secondary": "Schedule Consultation"
+        },
+        "testimonial": {
+          "quote": "The IT consulting team delivered exceptional results that exceeded our expectations.",
+          "author": "Sarah Johnson",
+          "title": "CTO, TechCorp"
+        }
+      }
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "success": "Success",
+      "cancel": "Cancel",
+      "save": "Save",
+      "submit": "Submit",
+      "close": "Close"
+    }
+  }
+  
