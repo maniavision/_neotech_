@@ -1,0 +1,110 @@
+<div class="request-form-container">
+    <div class="form-card">
+      <h2>{{ isLoggedIn ? 'New Request' : 'Submit Your Request' }}</h2>
+      
+      <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+        <!-- Guest user fields -->
+        <div *ngIf="!isLoggedIn" class="form-section">
+          <h3>Contact Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control"
+                [class.error]="requestForm.get('name')?.touched && requestForm.get('name')?.errors"
+              />
+              <div *ngIf="requestForm.get('name')?.touched && requestForm.get('name')?.errors" class="error-message">
+                Name is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-control"
+                [class.error]="requestForm.get('email')?.touched && requestForm.get('email')?.errors"
+              />
+              <div *ngIf="requestForm.get('email')?.touched && requestForm.get('email')?.errors" class="error-message">
+                Valid email is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              formControlName="phone"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <!-- Request details -->
+        <div class="form-section">
+          <h3>Request Details</h3>
+          <div *ngIf="!isLoggedIn" class="form-group">
+            <label for="title">Request Title *</label>
+            <input
+              type="text"
+              id="title"
+              formControlName="title"
+              class="form-control"
+              [class.error]="requestForm.get('title')?.touched && requestForm.get('title')?.errors"
+            />
+            <div *ngIf="requestForm.get('title')?.touched && requestForm.get('title')?.errors" class="error-message">
+              Title is required
+            </div>
+          </div>
+
+          <div *ngIf="!isLoggedIn" class="form-group">
+            <label for="service">Service Type *</label>
+            <select
+              id="service"
+              formControlName="service"
+              class="form-control"
+              [class.error]="requestForm.get('service')?.touched && requestForm.get('service')?.errors"
+            >
+              <option value="">Select a service</option>
+              <option *ngFor="let service of serviceTypes" [value]="service">{{ service }}</option>
+            </select>
+            <div *ngIf="requestForm.get('service')?.touched && requestForm.get('service')?.errors" class="error-message">
+              Please select a service
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description *</label>
+            <textarea
+              id="description"
+              formControlName="description"
+              rows="5"
+              class="form-control"
+              [class.error]="requestForm.get('description')?.touched && requestForm.get('description')?.errors"
+              placeholder="Please describe your requirements in detail..."
+            ></textarea>
+            <div *ngIf="requestForm.get('description')?.touched && requestForm.get('description')?.errors" class="error-message">
+              Description is required
+            </div>
+          </div>
+
+          <app-file-upload
+            (filesSelected)="onFilesSelected($event)"
+            [accept]="'.pdf,.doc,.docx,.txt,.png,.jpg,.jpeg'"
+            label="Attach Documents (Optional)"
+          ></app-file-upload>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" [disabled]="!requestForm.valid || isSubmitting" class="submit-btn">
+            {{ isSubmitting ? 'Submitting...' : 'Submit Request' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

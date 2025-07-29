@@ -1,0 +1,87 @@
+.confirm-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+  }
+
+  .confirm-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .success-icon, .error-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .success h2 {
+    color: #28a745;
+    margin-bottom: 1rem;
+  }
+
+  .error h2 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+  }
+
+  .success p, .error p {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .login-btn, .home-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .login-btn {
+    background: #667eea;
+    color: white;
+  }
+
+  .login-btn:hover {
+    background: #5a6fd8;
+  }
+
+  .home-btn {
+    background: #6c757d;
+    color: white;
+  }
+
+  .home-btn:hover {
+    background: #5a6268;
+  }

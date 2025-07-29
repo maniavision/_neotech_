@@ -1,0 +1,22 @@
+<div class="file-upload-container">
+    <input
+      type="file"
+      #fileInput
+      [multiple]="multiple"
+      [accept]="accept"
+      (change)="onFileSelected($event)"
+      class="file-input"
+      id="file-upload"
+    />
+    <label for="file-upload" class="file-upload-label">
+      <i class="upload-icon">📎</i>
+      <span>{{ label }}</span>
+    </label>
+    
+    <div *ngIf="selectedFiles.length > 0" class="selected-files">
+      <div *ngFor="let file of selectedFiles; let i = index" class="file-item">
+        <span class="file-name">{{ file.name }}</span>
+        <button type="button" (click)="removeFile(i)" class="remove-btn">×</button>
+      </div>
+    </div>
+  </div>

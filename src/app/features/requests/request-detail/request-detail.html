@@ -1,0 +1,53 @@
+<div class="request-detail-container">
+    <div *ngIf="loading" class="loading">Loading request details...</div>
+    
+    <div *ngIf="!loading && request" class="request-detail-card">
+      <div class="detail-header">
+        <a routerLink="/dashboard" class="back-btn">← Back to Dashboard</a>
+        <span class="status-badge" [class]="'status-' + request.status.toLowerCase().replace(' ', '-')">
+          {{ request.status }}
+        </span>
+      </div>
+
+      <div class="detail-content">
+        <h1>{{ request.title }}</h1>
+        
+        <div class="detail-meta">
+          <div class="meta-item">
+            <label>Service Type:</label>
+            <span>{{ request.service }}</span>
+          </div>
+          <div class="meta-item">
+            <label>Created:</label>
+            <span>{{ formatDate(request.createdAt) }}</span>
+          </div>
+          <div class="meta-item">
+            <label>Last Updated:</label>
+            <span>{{ formatDate(request.updatedAt) }}</span>
+          </div>
+        </div>
+
+        <div class="description-section">
+          <h3>Description</h3>
+          <p>{{ request.description }}</p>
+        </div>
+
+        <div *ngIf="request.attachments.length > 0" class="attachments-section">
+          <h3>Attachments</h3>
+          <div class="attachments-list">
+            <div *ngFor="let attachment of request.attachments" class="attachment-item">
+              <div class="attachment-info">
+                <span class="attachment-name">{{ attachment.fileName }}</span>
+                <span class="attachment-size">{{ formatFileSize(attachment.fileSize) }}</span>
+              </div>
+              <a [href]="attachment.url" target="_blank" class="download-btn">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="request.status === 'Completed'" class="payment-section">
+          <button (click)="makePayment()" class="payment-btn">Make Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,64 @@
+<div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>My Dashboard</h1>
+      <div class="header-actions">
+        <a routerLink="/request" class="new-request-btn">New Request</a>
+        <button (click)="logout()" class="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <div class="dashboard-content">
+      <div class="stats-section">
+        <div class="stat-card">
+          <h3>Total Requests</h3>
+          <div class="stat-number">{{ requests.length }}</div>
+        </div>
+        <div class="stat-card">
+          <h3>Pending</h3>
+          <div class="stat-number">{{ getPendingCount() }}</div>
+        </div>
+        <div class="stat-card">
+          <h3>In Progress</h3>
+          <div class="stat-number">{{ getInProgressCount() }}</div>
+        </div>
+        <div class="stat-card">
+          <h3>Completed</h3>
+          <div class="stat-number">{{ getCompletedCount() }}</div>
+        </div>
+      </div>
+
+      <div class="requests-section">
+        <h2>My Requests</h2>
+        <div *ngIf="loading" class="loading">Loading requests...</div>
+        
+        <div *ngIf="!loading && requests.length === 0" class="empty-state">
+          <p>You haven't submitted any requests yet.</p>
+          <a routerLink="/request" class="new-request-btn">Submit Your First Request</a>
+        </div>
+
+        <div *ngIf="!loading && requests.length > 0" class="requests-grid">
+          <div *ngFor="let request of requests" class="request-card" (click)="viewRequest(request.id)">
+            <div class="request-header">
+              <h3>{{ request.title }}</h3>
+              <span class="status-badge" [class]="'status-' + request.status.toLowerCase().replace(' ', '-')">
+                {{ request.status }}
+              </span>
+            </div>
+            <div class="request-details">
+              <p class="service-type">{{ request.service }}</p>
+              <p class="request-date">{{ formatDate(request.createdAt) }}</p>
+              <p class="request-description">{{ truncateDescription(request.description) }}</p>
+            </div>
+            <div class="request-actions">
+              <button 
+                *ngIf="request.status === 'Completed'" 
+                (click)="makePayment(request.id, $event)" 
+                class="payment-btn">
+                Make Payment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
