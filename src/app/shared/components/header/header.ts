@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { LanguageSwitcher } from '../language-switcher/language-switcher';
 import { TranslateModule } from '@ngx-translate/core';
+import { UserRole } from '../../../core/models/interfaces';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,7 @@ export class Header {
   isLoggedIn = false;
   mobileMenuOpen = false;
   isScrolled = false;
+  isAdmin = false;
 
   @HostListener('window:scroll')
   onScroll() {
@@ -34,6 +36,7 @@ export class Header {
   ngOnInit(): void {
     this.authService.currentUser$.subscribe(user => {
       this.isLoggedIn = !!user;
+      this.isAdmin = user?.role === UserRole.ADMIN;
     });
   }
 

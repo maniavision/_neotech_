@@ -4,11 +4,14 @@ export interface User {
     name: string;
     phone: string;
     createdAt: Date;
+    role: UserRole;
   }
   
   export interface ServiceRequest {
     id: string;
     userId: string;
+    userName: string; // Add user name for admin view
+    userEmail: string; // Add user email for admin view
     title: string;
     service: ServiceType;
     description: string;
@@ -16,6 +19,7 @@ export interface User {
     attachments: FileAttachment[];
     createdAt: Date;
     updatedAt: Date;
+    adminNotes?: string; // Add admin notes
   }
   
   export interface FileAttachment {
@@ -38,7 +42,8 @@ export interface User {
     PENDING = 'Pending',
     IN_PROGRESS = 'In Progress',
     COMPLETED = 'Completed',
-    CANCELLED = 'Cancelled'
+    CANCELLED = 'Cancelled',
+    ON_HOLD = 'On Hold'
   }
   
   export interface CreateRequestDto {
@@ -51,3 +56,12 @@ export interface User {
     attachments: File[];
   }
   
+  export enum UserRole {
+    USER = 'user',
+    ADMIN = 'admin'
+  }
+
+  export interface UpdateRequestDto {
+    status?: RequestStatus;
+    adminNotes?: string;
+  }

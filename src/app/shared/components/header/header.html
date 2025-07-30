@@ -37,6 +37,14 @@
             <span class="nav-icon">📝</span>
             <span>{{ 'header.nav.submitRequest' | translate }}</span>
           </a>
+          <a *ngIf="isLoggedIn && isAdmin" 
+            routerLink="/admin" 
+            routerLinkActive="active"
+            (click)="closeMobileMenu()"
+            class="nav-link admin-link">
+            <span class="nav-icon">⚙️</span>
+            <span>Admin</span>
+            </a>
           <a *ngIf="!isLoggedIn" 
              routerLink="/login" 
              routerLinkActive="active"

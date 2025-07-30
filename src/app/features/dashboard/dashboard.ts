@@ -76,9 +76,4 @@ export class Dashboard {
   truncateDescription(description: string): string {
     return description.length > 100 ? description.substring(0, 100) + '...' : description;
   }
-
-  logout(): void {
-    this.authService.logout();
-    // Navigation will be handled by auth guard
-  }
 }

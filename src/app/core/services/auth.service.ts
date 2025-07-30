@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { User } from '../models/interfaces';
+import { User, UserRole } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +46,14 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return !!this.currentUserSubject.value;
+  }
+
+  isAdmin(): boolean {
+    const user = this.currentUserSubject.value;
+    return user?.role === UserRole.ADMIN;
+  }
+
+  getCurrentUserValue(): User | null {
+    return this.currentUserSubject.value;
   }
 }
