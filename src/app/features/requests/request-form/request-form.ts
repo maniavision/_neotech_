@@ -30,26 +30,26 @@ export class RequestForm {
     this.requestForm = this.createForm();
   }
 
-  private createForm(): FormGroup {
-    const baseControls = {
-      description: ['', Validators.required]
-    };
+private createForm(): FormGroup {
+  const baseControls = {
+    title: ['', Validators.required],
+    service: ['', Validators.required],
+    description: ['', Validators.required],
+  };
 
-    if (!this.isLoggedIn) {
-      return this.fb.group({
-        ...baseControls,
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        companyName: [''],
-        email: ['', [Validators.required, Validators.email]],
-        phone: [''],
-        title: ['', Validators.required],
-        service: ['', Validators.required]
-      });
-    }
-
+  if (this.isLoggedIn) {
     return this.fb.group(baseControls);
   }
+
+  return this.fb.group({
+    ...baseControls,
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    companyName: [''],
+    email: ['', [Validators.required, Validators.email]],
+    phone: [''],
+  });
+}
 
   onFilesSelected(files: File[]): void {
     this.selectedFiles = files;
