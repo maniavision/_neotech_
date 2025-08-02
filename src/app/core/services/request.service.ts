@@ -11,15 +11,17 @@ export class RequestService {
 
   createRequest(requestData: CreateRequestDto): Observable<{ message: string; requestId: string }> {
     const formData = new FormData();
-    
-    if (requestData.name) formData.append('name', requestData.name);
+
+    if (requestData.firstName) formData.append('firstName', requestData.firstName);
+    if (requestData.lastName) formData.append('lastName', requestData.lastName);
+    if (requestData.companyName) formData.append('companyName', requestData.companyName);
     if (requestData.email) formData.append('email', requestData.email);
     if (requestData.phone) formData.append('phone', requestData.phone);
-    
+
     formData.append('title', requestData.title);
     formData.append('service', requestData.service);
     formData.append('description', requestData.description);
-    
+
     requestData.attachments.forEach(file => {
       formData.append('attachments', file);
     });

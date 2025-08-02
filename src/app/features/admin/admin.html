@@ -46,7 +46,7 @@
           <option [value]="RequestStatus.ON_HOLD">{{ RequestStatus.ON_HOLD }}</option>
         </select>
       </div>
-      
+
       <div class="filter-group">
         <label for="serviceFilter">Filter by Service:</label>
         <select id="serviceFilter" [(ngModel)]="selectedService" (change)="filterRequests()" class="filter-select">
@@ -61,11 +61,11 @@
 
       <div class="filter-group">
         <label for="searchFilter">Search:</label>
-        <input 
-          id="searchFilter" 
-          type="text" 
-          [(ngModel)]="searchTerm" 
-          (input)="filterRequests()" 
+        <input
+          id="searchFilter"
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="filterRequests()"
           placeholder="Search by user name, email, or title..."
           class="filter-input">
       </div>
@@ -74,7 +74,7 @@
     <!-- Requests Table -->
     <div class="requests-section">
       <h2>All Requests ({{ filteredRequests.length }})</h2>
-      
+
       <div *ngIf="loading" class="loading">
         <div class="spinner"></div>
         <p>Loading requests...</p>
@@ -97,12 +97,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let request of filteredRequests; trackBy: trackByRequestId" 
+            <tr *ngFor="let request of filteredRequests; trackBy: trackByRequestId"
                 class="request-row"
                 [class.editing]="editingRequest?.id === request.id">
               <td>
                 <div class="user-info">
-                  <div class="user-name">{{ request.userName }}</div>
+                  <div class="user-name">{{ request.firstName }} {{ request.lastName }}</div>
+                  <div class="user-company">{{ request.companyName }}</div>
                   <div class="user-email">{{ request.userEmail }}</div>
                 </div>
               </td>
@@ -173,7 +174,7 @@
           <h3>Edit Request: {{ editingRequest.title }}</h3>
           <button class="modal-close" (click)="closeModal()">×</button>
         </div>
-        
+
         <div class="modal-body">
           <div class="form-group">
             <label>Status</label>
@@ -185,20 +186,20 @@
               <option [value]="RequestStatus.ON_HOLD">{{ RequestStatus.ON_HOLD }}</option>
             </select>
           </div>
-          
+
           <div class="form-group">
             <label>Admin Notes</label>
-            <textarea 
-              [(ngModel)]="editForm.adminNotes" 
-              class="form-control" 
+            <textarea
+              [(ngModel)]="editForm.adminNotes"
+              class="form-control"
               rows="4"
               placeholder="Add internal notes about this request..."></textarea>
           </div>
-          
+
           <div class="request-details">
             <h4>Request Details</h4>
             <div class="detail-row">
-              <strong>User:</strong> {{ editingRequest.userName }} ({{ editingRequest.userEmail }})
+              <strong>User:</strong> {{ editingRequest.firstName }}, {{ editingRequest.lastName }} ({{ editingRequest.userEmail }})
             </div>
             <div class="detail-row">
               <strong>Service:</strong> {{ editingRequest.service }}
@@ -219,7 +220,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="modal-footer">
           <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
           <button class="btn btn-primary" (click)="saveEdit()" [disabled]="saving">

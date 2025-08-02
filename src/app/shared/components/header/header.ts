@@ -36,7 +36,7 @@ export class Header {
   ngOnInit(): void {
     this.authService.currentUser$.subscribe(user => {
       this.isLoggedIn = !!user;
-      this.isAdmin = user?.role === UserRole.ADMIN;
+      this.isAdmin = user?.role === UserRole.ADMIN.toUpperCase();
     });
   }
 

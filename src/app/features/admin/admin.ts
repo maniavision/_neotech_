@@ -21,12 +21,12 @@ export class Admin {
   filteredRequests: ServiceRequest[] = [];
   loading = true;
   saving = false;
-  
+
   // Filters - properly typed
   selectedStatus: RequestStatus | '' = '';
   selectedService: ServiceType | '' = '';
   searchTerm = '';
-  
+
   // Editing - properly typed
   editingRequest: ServiceRequest | null = null;
   showModal = false;
@@ -62,11 +62,14 @@ export class Admin {
     this.filteredRequests = this.requests.filter(request => {
       const statusMatch = !this.selectedStatus || request.status === this.selectedStatus;
       const serviceMatch = !this.selectedService || request.service === this.selectedService;
-      const searchMatch = !this.searchTerm || 
-        request.userName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        request.userEmail.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        request.title.toLowerCase().includes(this.searchTerm.toLowerCase());
-      
+      const searchTermLower = this.searchTerm.toLowerCase();
+      const searchMatch = !this.searchTerm ||
+        (request.firstName && request.firstName.toLowerCase().includes(searchTermLower)) ||
+        (request.lastName && request.lastName.toLowerCase().includes(searchTermLower)) ||
+        (request.companyName && request.companyName.toLowerCase().includes(searchTermLower)) ||
+        request.userEmail.toLowerCase().includes(searchTermLower) ||
+        request.title.toLowerCase().includes(searchTermLower);
+
       return statusMatch && serviceMatch && searchMatch;
     });
   }
@@ -88,7 +91,7 @@ export class Admin {
     if (!this.editingRequest) return;
 
     this.saving = true;
-    
+
     // Create properly typed update object
     const updateData: UpdateRequestDto = {
       status: this.editForm.status,
@@ -116,9 +119,9 @@ export class Admin {
   cancelEdit(): void {
     this.editingRequest = null;
     this.showModal = false;
-    this.editForm = { 
-      status: RequestStatus.PENDING, 
-      adminNotes: '' 
+    this.editForm = {
+      status: RequestStatus.PENDING,
+      adminNotes: ''
     };
   }
 

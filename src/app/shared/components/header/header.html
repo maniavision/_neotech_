@@ -1,80 +1,102 @@
-<nav class="navbar" [class.scrolled]="isScrolled" [class.mobile-open]="mobileMenuOpen">
-    <div class="nav-content">
-      <a routerLink="/" class="nav-brand" (click)="closeMobileMenu()">
-        <div class="brand-container">
-          <div class="brand-icon-wrapper">
-            <div class="brand-icon">💼</div>
-            <div class="brand-icon-glow"></div>
-          </div>
-          <div class="brand-text-container">
-            <span class="brand-text">{{ 'header.brand' | translate }}</span>
-            <span class="brand-subtitle">{{ 'header.subtitle' | translate }}</span>
-          </div>
+<nav
+  class="navbar"
+  [class.scrolled]="isScrolled"
+  [class.mobile-open]="mobileMenuOpen"
+>
+  <div class="nav-content">
+    <a routerLink="/" class="nav-brand" (click)="closeMobileMenu()">
+      <div class="brand-container">
+        <div class="brand-icon-wrapper">
+          <div class="brand-icon">💼</div>
+          <div class="brand-icon-glow"></div>
         </div>
-      </a>
-      
-      <button class="mobile-toggle" (click)="toggleMobileMenu()" [class.active]="mobileMenuOpen">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      
-      <div class="nav-links" [class.mobile-open]="mobileMenuOpen">
-        <div class="nav-backdrop" (click)="closeMobileMenu()"></div>
-        <div class="nav-menu">
-          <a routerLink="/" 
-             routerLinkActive="active" 
-             [routerLinkActiveOptions]="{exact: true}"
-             (click)="closeMobileMenu()"
-             class="nav-link">
-            <span class="nav-icon">🏠</span>
-            <span>{{ 'header.nav.home' | translate }}</span>
-          </a>
-          <a routerLink="/request" 
-             routerLinkActive="active"
-             (click)="closeMobileMenu()"
-             class="nav-link">
-            <span class="nav-icon">📝</span>
-            <span>{{ 'header.nav.submitRequest' | translate }}</span>
-          </a>
-          <a *ngIf="isLoggedIn && isAdmin" 
-            routerLink="/admin" 
-            routerLinkActive="active"
-            (click)="closeMobileMenu()"
-            class="nav-link admin-link">
-            <span class="nav-icon">⚙️</span>
-            <span>Admin</span>
-            </a>
-          <a *ngIf="!isLoggedIn" 
-             routerLink="/login" 
-             routerLinkActive="active"
-             (click)="closeMobileMenu()"
-             class="nav-link">
-            <span class="nav-icon">🔐</span>
-            <span>{{ 'header.nav.login' | translate }}</span>
-          </a>
-          <a *ngIf="isLoggedIn" 
-             routerLink="/dashboard" 
-             routerLinkActive="active"
-             (click)="closeMobileMenu()"
-             class="nav-link">
-            <span class="nav-icon">📊</span>
-            <span>{{ 'header.nav.dashboard' | translate }}</span>
-          </a>
-          
-          <div class="nav-divider"></div>
-          
-          <div class="nav-language">
-            <app-language-switcher></app-language-switcher>
-          </div>
-          
-          <button *ngIf="isLoggedIn" 
-                  (click)="logout()" 
-                  class="btn btn-accent logout-btn">
-            <span class="logout-icon">🚪</span>
-            <span>{{ 'header.nav.logout' | translate }}</span>
-          </button>
+        <div class="brand-text-container">
+          <span class="brand-text">{{ "header.brand" | translate }}</span>
+          <span class="brand-subtitle">{{
+            "header.subtitle" | translate
+          }}</span>
         </div>
       </div>
+    </a>
+
+    <button
+      class="mobile-toggle"
+      (click)="toggleMobileMenu()"
+      [class.active]="mobileMenuOpen"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <div class="nav-links" [class.mobile-open]="mobileMenuOpen">
+      <div class="nav-backdrop" (click)="closeMobileMenu()"></div>
+      <div class="nav-menu">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMobileMenu()"
+          class="nav-link"
+        >
+          <span class="nav-icon">🏠</span>
+          <span>{{ "header.nav.home" | translate }}</span>
+        </a>
+        <a
+          routerLink="/request"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          class="nav-link"
+        >
+          <span class="nav-icon">📝</span>
+          <span>{{ "header.nav.submitRequest" | translate }}</span>
+        </a>
+        <a
+          *ngIf="isLoggedIn && isAdmin"
+          routerLink="/admin"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          class="nav-link admin-link"
+        >
+          <span class="nav-icon">⚙️</span>
+          <span>Admin</span>
+        </a>
+        <a
+          *ngIf="!isLoggedIn"
+          routerLink="/login"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          class="nav-link"
+        >
+          <span class="nav-icon">🔐</span>
+          <span>{{ "header.nav.login" | translate }}</span>
+        </a>
+        <a
+          *ngIf="isLoggedIn"
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          class="nav-link"
+        >
+          <span class="nav-icon">📊</span>
+          <span>{{ "header.nav.dashboard" | translate }}</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <div class="nav-language">
+          <app-language-switcher></app-language-switcher>
+        </div>
+
+        <button
+          *ngIf="isLoggedIn"
+          (click)="logout()"
+          class="btn btn-accent logout-btn"
+        >
+          <span class="logout-icon">🚪</span>
+          <span>{{ "header.nav.logout" | translate }}</span>
+        </button>
+      </div>
     </div>
-  </nav>
+  </div>
+</nav>

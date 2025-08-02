@@ -38,7 +38,9 @@ export class RequestForm {
     if (!this.isLoggedIn) {
       return this.fb.group({
         ...baseControls,
-        name: ['', Validators.required],
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        companyName: [''],
         email: ['', [Validators.required, Validators.email]],
         phone: [''],
         title: ['', Validators.required],
@@ -56,7 +58,7 @@ export class RequestForm {
   onSubmit(): void {
     if (this.requestForm.valid) {
       this.isSubmitting = true;
-      
+
       const formData = {
         ...this.requestForm.value,
         attachments: this.selectedFiles

@@ -15,17 +15,17 @@ export class TranslationService {
     private translate = inject(TranslateService);
     private currentLanguageSubject = new BehaviorSubject<string>('en');
     public currentLanguage$ = this.currentLanguageSubject.asObservable();
-  
+
     public availableLanguages: Language[] = [
       { code: 'en', name: 'English', flag: '🇺🇸' },
       { code: 'fr', name: 'Français', flag: '🇫🇷' }
     ];
-  
+
     // Define translations directly in the service
     private translations = {
       en: {
         header: {
-          brand: "IT Consulting",
+          brand: "NeoTech LLC",
           subtitle: "Professional Solutions",
           nav: {
             home: "Home",
@@ -200,7 +200,7 @@ export class TranslationService {
       },
       fr: {
         header: {
-          brand: "Conseil IT",
+          brand: "NeoTech LLC",
           subtitle: "Solutions Professionnelles",
           nav: {
             home: "Accueil",
@@ -374,53 +374,53 @@ export class TranslationService {
         }
       }
     };
-  
+
     constructor() {
       this.initializeLanguage();
     }
-  
+
     private initializeLanguage(): void {
       // Set default language
       this.translate.setDefaultLang('en');
-      
+
       // Load translations
       this.translate.setTranslation('en', this.translations.en);
       this.translate.setTranslation('fr', this.translations.fr);
-      
+
       // Get saved language or use browser language
       const savedLanguage = localStorage.getItem('selectedLanguage');
       const browserLanguage = this.translate.getBrowserLang();
-      
+
       let languageToUse = 'en'; // Default fallback
-      
+
       if (savedLanguage && this.isLanguageSupported(savedLanguage)) {
         languageToUse = savedLanguage;
       } else if (browserLanguage && this.isLanguageSupported(browserLanguage)) {
         languageToUse = browserLanguage;
       }
-      
+
       this.setLanguage(languageToUse);
     }
-  
+
     public setLanguage(language: string): void {
       if (this.isLanguageSupported(language)) {
         this.translate.use(language);
         this.currentLanguageSubject.next(language);
         localStorage.setItem('selectedLanguage', language);
-        
+
         // Update HTML lang attribute
         document.documentElement.lang = language;
       }
     }
-  
+
     public getCurrentLanguage(): string {
       return this.currentLanguageSubject.value;
     }
-  
+
     public getTranslation(key: string, params?: any): string {
       return this.translate.instant(key, params);
     }
-  
+
     private isLanguageSupported(language: string): boolean {
       return this.availableLanguages.some(lang => lang.code === language);
     }

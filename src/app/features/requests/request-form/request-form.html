@@ -1,37 +1,58 @@
 <div class="request-form-container">
     <div class="form-card">
       <h2>{{ isLoggedIn ? 'New Request' : 'Submit Your Request' }}</h2>
-      
+
       <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
-        <!-- Guest user fields -->
         <div *ngIf="!isLoggedIn" class="form-section">
           <h3>Contact Information</h3>
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Full Name *</label>
+              <label for="firstName">First Name *</label>
               <input
                 type="text"
-                id="name"
-                formControlName="name"
+                id="firstName"
+                formControlName="firstName"
                 class="form-control"
-                [class.error]="requestForm.get('name')?.touched && requestForm.get('name')?.errors"
+                [class.error]="requestForm.get('firstName')?.touched && requestForm.get('firstName')?.errors"
               />
-              <div *ngIf="requestForm.get('name')?.touched && requestForm.get('name')?.errors" class="error-message">
-                Name is required
+              <div *ngIf="requestForm.get('firstName')?.touched && requestForm.get('firstName')?.errors" class="error-message">
+                First name is required
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label for="lastName">Last Name *</label>
               <input
-                type="email"
-                id="email"
-                formControlName="email"
+                type="text"
+                id="lastName"
+                formControlName="lastName"
                 class="form-control"
-                [class.error]="requestForm.get('email')?.touched && requestForm.get('email')?.errors"
+                [class.error]="requestForm.get('lastName')?.touched && requestForm.get('lastName')?.errors"
               />
-              <div *ngIf="requestForm.get('email')?.touched && requestForm.get('email')?.errors" class="error-message">
-                Valid email is required
+              <div *ngIf="requestForm.get('lastName')?.touched && requestForm.get('lastName')?.errors" class="error-message">
+                Last name is required
               </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input
+              type="text"
+              id="companyName"
+              formControlName="companyName"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-control"
+              [class.error]="requestForm.get('email')?.touched && requestForm.get('email')?.errors"
+            />
+            <div *ngIf="requestForm.get('email')?.touched && requestForm.get('email')?.errors" class="error-message">
+              Valid email is required
             </div>
           </div>
           <div class="form-group">
@@ -48,7 +69,7 @@
         <!-- Request details -->
         <div class="form-section">
           <h3>Request Details</h3>
-          <div *ngIf="!isLoggedIn" class="form-group">
+          <div class="form-group">
             <label for="title">Request Title *</label>
             <input
               type="text"
@@ -62,7 +83,7 @@
             </div>
           </div>
 
-          <div *ngIf="!isLoggedIn" class="form-group">
+          <div  class="form-group">
             <label for="service">Service Type *</label>
             <select
               id="service"
