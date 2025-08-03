@@ -2,12 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ServiceRequest, CreateRequestDto } from '../models/interfaces';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestService {
   private http = inject(HttpClient);
+  private apiUrl = environment.apiUrl;
 
   createRequest(requestData: CreateRequestDto): Observable<{ message: string; requestId: string }> {
     const formData = new FormData();
@@ -26,18 +28,18 @@ export class RequestService {
       formData.append('attachments', file);
     });
 
-    return this.http.post<{ message: string; requestId: string }>('/api/requests', formData);
+    return this.http.post<{ message: string; requestId: string }>(`${this.apiUrl}/api/requests`, formData);
   }
 
   getUserRequests(): Observable<ServiceRequest[]> {
-    return this.http.get<ServiceRequest[]>('/api/requests/my-requests');
+    return this.http.get<ServiceRequest[]>(`${this.apiUrl}/api/requests/my-requests`);
   }
 
   getRequestById(id: string): Observable<ServiceRequest> {
-    return this.http.get<ServiceRequest>(`/api/requests/${id}`);
+    return this.http.get<ServiceRequest>(`${this.apiUrl}/api/requests/${id}`);
   }
 
   makePayment(requestId: string): Observable<{ paymentUrl: string }> {
-    return this.http.post<{ paymentUrl: string }>(`/api/requests/${requestId}/payment`, {});
+    return this.http.post<{ paymentUrl: string }>(`${this.apiUrl}/api/requests/${requestId}/payment`, {});
   }
 }

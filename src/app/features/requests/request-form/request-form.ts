@@ -19,6 +19,9 @@ export class RequestForm {
   private authService = inject(AuthService);
   private router = inject(Router);
 
+  showSuccessModal = false;
+  successMessage = '';
+
   requestForm: FormGroup;
   selectedFiles: File[] = [];
   isSubmitting = false;
@@ -66,11 +69,18 @@ private createForm(): FormGroup {
 
       this.requestService.createRequest(formData).subscribe({
         next: (response) => {
-          alert('Request submitted successfully! Please check your email for confirmation.');
           if (this.isLoggedIn) {
-            this.router.navigate(['/dashboard']);
+            this.successMessage = 'Request submitted successfully! Redirecting to dashboard...';
+            this.showSuccessModal = true;
+            setTimeout(() => {
+              this.router.navigate(['/dashboard']);
+            }, 5000);
           } else {
-            this.router.navigate(['/']);
+            this.successMessage = 'Request submitted successfully! A confirmation link has been sent to your email. Redirecting to home page...';
+            this.showSuccessModal = true;
+            setTimeout(() => {
+              this.router.navigate(['/']);
+            }, 5000);
           }
         },
         error: (error) => {
