@@ -91,7 +91,7 @@
               [class.error]="requestForm.get('service')?.touched && requestForm.get('service')?.errors"
             >
               <option value="">Select a service</option>
-              <option *ngFor="let service of serviceTypes" [value]="service">{{ service }}</option>
+              <option *ngFor="let service of serviceTypes" [value]="service.key">{{ service.value }}</option>
             </select>
             <div *ngIf="requestForm.get('service')?.touched && requestForm.get('service')?.errors" class="error-message">
               Please select a service

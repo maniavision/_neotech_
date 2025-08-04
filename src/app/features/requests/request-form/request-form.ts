@@ -26,7 +26,7 @@ export class RequestForm {
   selectedFiles: File[] = [];
   isSubmitting = false;
   isLoggedIn = false;
-  serviceTypes = Object.values(ServiceType);
+  serviceTypes = Object.entries(ServiceType).map(([key, value]) => ({ key, value }));
 
   constructor() {
     this.isLoggedIn = this.authService.isAuthenticated();
@@ -85,7 +85,7 @@ private createForm(): FormGroup {
         },
         error: (error) => {
           console.error('Error submitting request:', error);
-          alert('Error submitting request. Please try again.');
+          // alert('Error submitting request. Please try again.');
           this.isSubmitting = false;
         }
       });
